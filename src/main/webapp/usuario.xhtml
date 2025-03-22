@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Lista de Usuarios</title>
+</h:head>
+
+<h:body>
+    <h1>Lista de Usuarios</h1>
+    
+    <p:dataTable value="#{usuarioBean.usuarios}" var="usuario" 
+               paginator="true" rows="2"
+               styleClass="ui-datatable-striped">
+        
+        <p:column headerText="Nombre">
+            <h:outputText value="#{usuario.nombre}" />
+        </p:column>
+        
+        <p:column headerText="Email">
+            <h:outputText value="#{usuario.email}" />
+        </p:column>
+        
+        <p:column headerText="Edad">
+            <h:outputText value="#{usuario.edad}" />
+        </p:column>
+        
+        <p:column headerText="Acciones">
+            <h:link outcome="detalles-usuario" value="Ver detalles">
+                <f:param name="id" value="#{usuario.id}" />
+            </h:link>
+        </p:column>
+    </p:dataTable>
+</h:body>
+
+</html>
